@@ -26,11 +26,13 @@ export default defineConfig(() => {
           if (fs.existsSync(distDir) && fs.existsSync(srcAssets)) {
             fs.cpSync(srcAssets, distAssets, {recursive: true, force: true});
           }
-          const srcAppJs = path.resolve(__dirname, 'src/app.js');
-          const distAppJs = path.resolve(distDir, 'src/app.js');
-          if (fs.existsSync(distDir) && fs.existsSync(srcAppJs)) {
-            fs.mkdirSync(path.dirname(distAppJs), {recursive: true});
-            fs.copyFileSync(srcAppJs, distAppJs);
+          for (const fileName of ['data.js', 'workspace.js', 'app.js']) {
+            const srcJs = path.resolve(__dirname, 'src', fileName);
+            const distJs = path.resolve(distDir, 'src', fileName);
+            if (fs.existsSync(distDir) && fs.existsSync(srcJs)) {
+              fs.mkdirSync(path.dirname(distJs), {recursive: true});
+              fs.copyFileSync(srcJs, distJs);
+            }
           }
         },
       },

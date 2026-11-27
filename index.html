@@ -40,6 +40,7 @@
       <div class="botanical-motes" id="botanical-motes"></div>
     </div>
 
+    <div id="landing-view">
     <!-- Sticky Glassmorphic Navigation Bar -->
     <header class="site-header" id="site-header">
       <div class="container header-inner">
@@ -75,7 +76,7 @@
           <button
             type="button"
             class="btn btn-sage btn-sm btn-shimmer"
-            data-scroll-target="#stakeholders"
+            id="nav-get-started-btn"
           >
             Get Started
           </button>
@@ -109,7 +110,7 @@
             <button
               type="button"
               class="btn btn-sage btn-shimmer"
-              data-scroll-target="#stakeholders"
+              id="mobile-get-started-btn"
             >
               Get Started <span aria-hidden="true">&rarr;</span>
             </button>
@@ -850,6 +851,407 @@
         <path d="M12 19V5M6 11l6-6 6 6" stroke-linecap="round" stroke-linejoin="round" />
       </svg>
     </button>
+    </div>
+
+    <!-- Dedicated Sign-In & Registration View -->
+    <section class="auth-view" id="auth-view" hidden aria-label="Sign In and Account Registration">
+      <div class="container auth-shell">
+        <div class="auth-top-bar">
+          <a href="#home" class="brand-link" id="auth-brand-home">
+            <svg class="brand-emblem" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+              <path
+                d="M18 5C12.2 10.8 10.8 19.2 15.2 26.8C16.4 28.8 18 30.4 18 30.4C18 30.4 19.6 28.8 20.8 26.8C25.2 19.2 23.8 10.8 18 5Z"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M18 30.4V11.5M18 22C13.8 20.6 10 17.4 8.2 13.2C12.2 13.2 15.6 15.1 18 18.6M18 22C22.2 20.6 26 17.4 27.8 13.2C23.8 13.2 20.4 15.1 18 18.6"
+                stroke="currentColor"
+                stroke-width="1.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <span class="brand-name">AgriSettleX</span>
+          </a>
+          <button type="button" class="btn btn-glass btn-sm" id="auth-back-landing">
+            &larr; Back to Home
+          </button>
+        </div>
+
+        <div class="auth-grid">
+          <aside class="glass-panel auth-showcase-panel">
+            <div class="hero-card-backdrop" aria-hidden="true">
+              <img
+                src="./src/assets/images/botanical_canopy_glow_1795777975758.jpg"
+                alt=""
+                class="card-bg-photo"
+                referrerpolicy="no-referrer"
+              />
+              <div class="card-bg-scrim"></div>
+            </div>
+            <div class="auth-showcase-inner">
+              <div class="hero-emblem-wrap" aria-hidden="true">
+                <svg class="hero-emblem" viewBox="0 0 48 48" fill="none">
+                  <path
+                    d="M24 7C16.2 14.6 14.4 25.8 20.4 35.4C22 37.8 24 40 24 40C24 40 26 37.8 27.6 35.4C33.6 25.8 31.8 14.6 24 7Z"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M24 40V16M24 29.5C18.4 27.6 13.6 23.4 11 17.8C16.4 17.8 20.8 20.4 24 25M24 29.5C29.6 27.6 34.4 23.4 37 17.8C31.6 17.8 27.2 20.4 24 25"
+                    stroke="currentColor"
+                    stroke-width="1.4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <p class="eyebrow-text">AgriSettleX Portal</p>
+              <h1 class="auth-brand-title">Clarity &amp; Trust for Agricultural Trade</h1>
+              <p class="auth-brand-tagline">
+                Enter a role-tailored demonstration workspace for Crop-to-Cash tracking, invoice
+                verification, multilateral netting settlement, and climate risk monitoring.
+              </p>
+
+              <div class="auth-demo-box">
+                <p class="auth-demo-heading">Quick Demo Sign-In (Sample Accounts)</p>
+                <p class="auth-demo-note">
+                  Frontend demo only &mdash; no real authentication, database, or blockchain transactions are performed.
+                </p>
+                <div class="auth-demo-roles" id="auth-demo-roles">
+                  <button type="button" class="btn btn-glass btn-xs" data-demo-role="farmer">Farmer</button>
+                  <button type="button" class="btn btn-glass btn-xs" data-demo-role="buyer">Buyer</button>
+                  <button type="button" class="btn btn-glass btn-xs" data-demo-role="transporter">Transporter</button>
+                  <button type="button" class="btn btn-glass btn-xs" data-demo-role="warehouse">Warehouse</button>
+                  <button type="button" class="btn btn-glass btn-xs" data-demo-role="financier">Financier</button>
+                  <button type="button" class="btn btn-glass btn-xs" data-demo-role="insurer">Insurer</button>
+                  <button type="button" class="btn btn-glass btn-xs" data-demo-role="admin">Admin</button>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          <div class="glass-panel auth-card">
+            <div class="auth-mode-tabs" role="tablist" aria-label="Authentication mode">
+              <button
+                type="button"
+                class="auth-mode-tab is-active"
+                id="tab-signin"
+                role="tab"
+                aria-selected="true"
+              >
+                Sign In
+              </button>
+              <button
+                type="button"
+                class="auth-mode-tab"
+                id="tab-register"
+                role="tab"
+                aria-selected="false"
+              >
+                Create Account
+              </button>
+            </div>
+
+            <!-- Sign In Form -->
+            <form class="auth-form" id="signin-form" novalidate>
+              <div class="auth-form-header">
+                <h2 class="auth-form-title">Welcome back</h2>
+                <p class="auth-form-subtitle">Sign in to access your stakeholder workspace</p>
+              </div>
+
+              <div class="form-field">
+                <label for="signin-email" class="form-label">Email address</label>
+                <input
+                  type="email"
+                  id="signin-email"
+                  class="form-input"
+                  placeholder="farmer@agrisettlex.demo"
+                  autocomplete="email"
+                  required
+                />
+                <p class="field-error" id="signin-error-email" role="alert" hidden></p>
+              </div>
+
+              <div class="form-field">
+                <label for="signin-password" class="form-label">Password</label>
+                <div class="password-input-wrap">
+                  <input
+                    type="password"
+                    id="signin-password"
+                    class="form-input"
+                    placeholder="Enter password (min 6 chars)"
+                    autocomplete="current-password"
+                    required
+                  />
+                  <button type="button" class="pw-toggle-btn" id="signin-toggle-pw" aria-label="Show password">
+                    Show
+                  </button>
+                </div>
+                <p class="field-error" id="signin-error-password" role="alert" hidden></p>
+              </div>
+
+              <div class="form-field">
+                <label for="signin-role" class="form-label">Stakeholder Role (Demo Workspace)</label>
+                <select id="signin-role" class="form-input form-select">
+                  <option value="farmer">Farmer</option>
+                  <option value="buyer">Buyer</option>
+                  <option value="transporter">Transporter</option>
+                  <option value="warehouse">Warehouse</option>
+                  <option value="financier">Financier</option>
+                  <option value="insurer">Insurer</option>
+                  <option value="admin">Administrator</option>
+                </select>
+              </div>
+
+              <div class="auth-options-row">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="signin-remember" />
+                  <span>Remember me</span>
+                </label>
+                <button type="button" class="text-link-btn" id="signin-forgot-btn">
+                  Forgot password?
+                </button>
+              </div>
+
+              <div class="auth-inline-notice" id="signin-forgot-notice" role="status" hidden>
+                Demo mode: enter any valid email and 6+ character password, or use a Quick Demo button on the left.
+              </div>
+
+              <button type="submit" class="btn btn-sage btn-full btn-shimmer">
+                Sign In <span aria-hidden="true">&rarr;</span>
+              </button>
+
+              <p class="auth-switch-copy">
+                New to AgriSettleX?
+                <button type="button" class="text-link-btn" id="switch-to-register">Create Account</button>
+              </p>
+            </form>
+
+            <!-- Registration Form -->
+            <form class="auth-form" id="register-form" novalidate hidden>
+              <div class="auth-form-header">
+                <h2 class="auth-form-title">Create demo account</h2>
+                <p class="auth-form-subtitle">Register a participant profile for this browser session</p>
+              </div>
+
+              <div class="form-field">
+                <label for="reg-name" class="form-label">Full name</label>
+                <input
+                  type="text"
+                  id="reg-name"
+                  class="form-input"
+                  placeholder="Enter your full name"
+                  autocomplete="name"
+                  required
+                />
+                <p class="field-error" id="reg-error-name" role="alert" hidden></p>
+              </div>
+
+              <div class="form-field">
+                <label for="reg-email" class="form-label">Email</label>
+                <input
+                  type="email"
+                  id="reg-email"
+                  class="form-input"
+                  placeholder="you@organization.com"
+                  autocomplete="email"
+                  required
+                />
+                <p class="field-error" id="reg-error-email" role="alert" hidden></p>
+              </div>
+
+              <div class="form-field">
+                <label for="reg-role" class="form-label">Select stakeholder role</label>
+                <select id="reg-role" class="form-input form-select" required>
+                  <option value="">Choose a role...</option>
+                  <option value="farmer">Farmer</option>
+                  <option value="buyer">Buyer</option>
+                  <option value="transporter">Transporter</option>
+                  <option value="warehouse">Warehouse</option>
+                  <option value="financier">Financier</option>
+                  <option value="insurer">Insurer</option>
+                </select>
+                <p class="field-error" id="reg-error-role" role="alert" hidden></p>
+              </div>
+
+              <div class="ws-form-row">
+                <div class="form-field">
+                  <label for="reg-password" class="form-label">Password</label>
+                  <div class="password-input-wrap">
+                    <input
+                      type="password"
+                      id="reg-password"
+                      class="form-input"
+                      placeholder="Min 6 characters"
+                      autocomplete="new-password"
+                      required
+                    />
+                    <button type="button" class="pw-toggle-btn" id="reg-toggle-pw" aria-label="Show password">
+                      Show
+                    </button>
+                  </div>
+                  <p class="field-error" id="reg-error-password" role="alert" hidden></p>
+                </div>
+
+                <div class="form-field">
+                  <label for="reg-confirm" class="form-label">Confirm password</label>
+                  <input
+                    type="password"
+                    id="reg-confirm"
+                    class="form-input"
+                    placeholder="Re-enter password"
+                    autocomplete="new-password"
+                    required
+                  />
+                  <p class="field-error" id="reg-error-confirm" role="alert" hidden></p>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-sage btn-full btn-shimmer">
+                Create Demo Account &amp; Enter <span aria-hidden="true">&rarr;</span>
+              </button>
+
+              <p class="auth-switch-copy">
+                Already have an account?
+                <button type="button" class="text-link-btn" id="switch-to-signin">Sign In</button>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Authenticated Multi-Role Workspace View -->
+    <div class="workspace-view" id="workspace-view" hidden>
+      <div class="ws-sidebar-overlay" id="ws-sidebar-overlay" hidden></div>
+
+      <aside class="ws-sidebar" id="ws-sidebar" aria-label="Workspace navigation">
+        <div class="ws-sidebar-brand">
+          <div class="brand-link">
+            <svg class="brand-emblem" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+              <path
+                d="M18 5C12.2 10.8 10.8 19.2 15.2 26.8C16.4 28.8 18 30.4 18 30.4C18 30.4 19.6 28.8 20.8 26.8C25.2 19.2 23.8 10.8 18 5Z"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M18 30.4V11.5M18 22C13.8 20.6 10 17.4 8.2 13.2C12.2 13.2 15.6 15.1 18 18.6M18 22C22.2 20.6 26 17.4 27.8 13.2C23.8 13.2 20.4 15.1 18 18.6"
+                stroke="currentColor"
+                stroke-width="1.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <span class="brand-name">AgriSettleX</span>
+          </div>
+          <p class="ws-sidebar-role" id="ws-sidebar-role">Farmer Portal</p>
+        </div>
+
+        <nav class="ws-sidebar-nav" id="ws-sidebar-nav"></nav>
+      </aside>
+
+      <div class="ws-shell-main">
+        <header class="ws-topbar">
+          <div class="ws-topbar-left">
+            <button
+              type="button"
+              class="ws-icon-btn ws-mobile-sidebar-btn"
+              id="ws-sidebar-toggle"
+              aria-label="Toggle workspace sidebar"
+              aria-expanded="false"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round" />
+              </svg>
+            </button>
+            <h1 class="ws-topbar-title" id="ws-topbar-title">Farmer Workspace</h1>
+          </div>
+
+          <div class="ws-topbar-right">
+            <div class="ws-search-wrap">
+              <svg class="ws-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <circle cx="11" cy="11" r="7" />
+                <path d="M20 20l-3.5-3.5" stroke-linecap="round" />
+              </svg>
+              <input
+                type="search"
+                id="ws-global-search"
+                class="ws-search-input"
+                placeholder="Search crops, invoices, trades..."
+                aria-label="Search workspace records"
+              />
+            </div>
+
+            <div class="ws-popover-anchor">
+              <button type="button" class="ws-icon-btn" id="ws-notif-btn" aria-label="Notifications">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                  <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9Z" stroke-linejoin="round" />
+                  <path d="M10.3 21a1.9 1.9 0 0 0 3.4 0" stroke-linecap="round" />
+                </svg>
+                <span class="ws-notif-badge tabular-nums" id="ws-notif-badge">3</span>
+              </button>
+
+              <div class="glass-modal ws-notif-popover" id="ws-notif-popover" hidden>
+                <div class="ws-notif-header">
+                  <strong>Notifications</strong>
+                  <button type="button" class="text-link-btn" id="ws-mark-all-read">Mark all read</button>
+                </div>
+                <div class="ws-notif-list" id="ws-notif-list"></div>
+              </div>
+            </div>
+
+            <button type="button" class="ws-icon-btn" id="ws-help-btn" aria-label="Workspace help">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M9.5 9.5a2.5 2.5 0 0 1 4.8.8c0 1.6-2.3 2.1-2.3 3.7" stroke-linecap="round" />
+                <circle cx="12" cy="17.2" r="0.8" fill="currentColor" stroke="none" />
+              </svg>
+            </button>
+
+            <div class="ws-popover-anchor">
+              <button type="button" class="ws-user-pill" id="ws-user-menu-trigger" aria-haspopup="true">
+                <span class="ws-avatar" id="ws-user-avatar">HS</span>
+                <span class="ws-user-meta">
+                  <strong id="ws-user-name">Harpreet Singh</strong>
+                  <span id="ws-user-role">Farmer</span>
+                </span>
+                <span aria-hidden="true">&#9662;</span>
+              </button>
+
+              <div class="glass-modal ws-user-dropdown" id="ws-user-dropdown" hidden>
+                <button type="button" class="ws-dropdown-item" id="ws-dropdown-profile">Profile &amp; Settings</button>
+                <button type="button" class="ws-dropdown-item ws-dropdown-item--danger" id="ws-dropdown-logout">Logout</button>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <main class="ws-main-content" id="ws-main-content"></main>
+      </div>
+
+      <!-- Workspace Interactive Modal -->
+      <div class="modal-backdrop" id="ws-modal" role="dialog" aria-modal="true" aria-labelledby="ws-modal-title" hidden>
+        <div class="glass-modal modal-card">
+          <div class="modal-header">
+            <div>
+              <p class="modal-kicker" id="ws-modal-kicker">Record</p>
+              <h2 class="modal-title" id="ws-modal-title">Details</h2>
+            </div>
+            <button type="button" class="modal-close" id="ws-modal-close" aria-label="Close modal">
+              &times;
+            </button>
+          </div>
+          <div class="modal-body" id="ws-modal-body"></div>
+        </div>
+      </div>
+
+      <div class="ws-toast" id="ws-toast" role="status" aria-live="polite" hidden></div>
+    </div>
 
     <!-- Feature Detail Modal -->
     <div class="modal-backdrop" id="feature-modal" role="dialog" aria-modal="true" aria-labelledby="feature-modal-title" hidden>
@@ -887,34 +1289,8 @@
       </div>
     </div>
 
-    <!-- Placeholder Login Modal -->
-    <div class="modal-backdrop" id="login-modal" role="dialog" aria-modal="true" aria-labelledby="login-modal-title" hidden>
-      <div class="glass-modal modal-card modal-card--compact">
-        <div class="modal-header">
-          <div>
-            <p class="modal-kicker">Portal Access</p>
-            <h2 class="modal-title" id="login-modal-title">AgriSettleX Workspace Login</h2>
-          </div>
-          <button type="button" class="modal-close" data-close-modal="login-modal" aria-label="Close login modal">
-            &times;
-          </button>
-        </div>
-        <div class="modal-body">
-          <p class="modal-description">
-            Authentication is intentionally disabled in this frontend preview. Select your role in
-            the <strong>Explore by Stakeholder</strong> section to inspect platform activities for
-            Farmers, Buyers, Transporters, and Financiers.
-          </p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-glass" data-close-modal="login-modal">Close</button>
-          <button type="button" class="btn btn-sage btn-shimmer" id="login-modal-explore">
-            Explore Roles <span aria-hidden="true">&rarr;</span>
-          </button>
-        </div>
-      </div>
-    </div>
-
+    <script defer src="./src/data.js"></script>
+    <script defer src="./src/workspace.js"></script>
     <script defer src="./src/app.js"></script>
   </body>
 </html>
