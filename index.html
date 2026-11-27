@@ -1,0 +1,920 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AgriSettleX — Agricultural Trade &amp; Smart Settlement Platform</title>
+    <meta
+      name="description"
+      content="AgriSettleX connects farmers, buyers, transporters, and financiers with crop-to-cash tracking, invoice verification, weather intelligence, and smart settlement."
+    />
+    <meta property="og:title" content="AgriSettleX — Agricultural Trade &amp; Smart Settlement Platform" />
+    <meta
+      property="og:description"
+      content="AgriSettleX connects farmers, buyers, transporters, and financiers with crop-to-cash tracking, invoice verification, weather intelligence, and smart settlement."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <!-- Animated Misty Sunlit Botanical Backdrop -->
+    <div class="botanical-backdrop" aria-hidden="true">
+      <img
+        src="./src/assets/images/aesthetic_botanical_mist_1795778468269.jpg"
+        alt=""
+        class="backdrop-photo"
+        id="backdrop-photo"
+        referrerpolicy="no-referrer"
+      />
+      <div class="backdrop-scrim"></div>
+      <div class="ambient-glow ambient-glow--top"></div>
+      <div class="ambient-glow ambient-glow--mid"></div>
+      <div class="ambient-glow ambient-glow--low"></div>
+      <div class="botanical-motes" id="botanical-motes"></div>
+    </div>
+
+    <!-- Sticky Glassmorphic Navigation Bar -->
+    <header class="site-header" id="site-header">
+      <div class="container header-inner">
+        <a href="#home" class="brand-link" aria-label="AgriSettleX Home">
+          <svg class="brand-emblem" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+            <path
+              d="M18 5C12.2 10.8 10.8 19.2 15.2 26.8C16.4 28.8 18 30.4 18 30.4C18 30.4 19.6 28.8 20.8 26.8C25.2 19.2 23.8 10.8 18 5Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M18 30.4V11.5M18 22C13.8 20.6 10 17.4 8.2 13.2C12.2 13.2 15.6 15.1 18 18.6M18 22C22.2 20.6 26 17.4 27.8 13.2C23.8 13.2 20.4 15.1 18 18.6"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span class="brand-name">AgriSettleX</span>
+        </a>
+
+        <nav class="primary-nav" aria-label="Primary navigation">
+          <a href="#home" class="nav-link is-active" data-section="home">Home</a>
+          <a href="#about" class="nav-link" data-section="about">About</a>
+          <a href="#features" class="nav-link" data-section="features">Features</a>
+          <a href="#how-it-works" class="nav-link" data-section="how-it-works">How It Works</a>
+          <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+          <button type="button" class="btn btn-glass btn-sm" id="nav-login-btn">Login</button>
+          <button
+            type="button"
+            class="btn btn-sage btn-sm btn-shimmer"
+            data-scroll-target="#stakeholders"
+          >
+            Get Started
+          </button>
+          <button
+            type="button"
+            class="mobile-menu-toggle"
+            id="mobile-menu-toggle"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            aria-controls="mobile-nav-drawer"
+          >
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Drawer -->
+      <div class="mobile-nav-drawer" id="mobile-nav-drawer" hidden>
+        <div class="container mobile-nav-inner">
+          <nav class="mobile-nav-links" aria-label="Mobile navigation">
+            <a href="#home" class="mobile-nav-link is-active" data-section="home">Home</a>
+            <a href="#about" class="mobile-nav-link" data-section="about">About</a>
+            <a href="#features" class="mobile-nav-link" data-section="features">Features</a>
+            <a href="#how-it-works" class="mobile-nav-link" data-section="how-it-works">How It Works</a>
+            <a href="#contact" class="mobile-nav-link" data-section="contact">Contact</a>
+          </nav>
+          <div class="mobile-nav-actions">
+            <button type="button" class="btn btn-glass" id="mobile-login-btn">Login</button>
+            <button
+              type="button"
+              class="btn btn-sage btn-shimmer"
+              data-scroll-target="#stakeholders"
+            >
+              Get Started <span aria-hidden="true">&rarr;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-progress-track" aria-hidden="true">
+        <div class="scroll-progress-bar" id="scroll-progress-bar"></div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero-section" id="home">
+        <div class="container hero-grid">
+          <div class="glass-panel hero-intro-card hero-animate">
+            <div class="hero-card-backdrop" aria-hidden="true">
+              <img
+                src="./src/assets/images/botanical_canopy_glow_1795777975758.jpg"
+                alt=""
+                class="card-bg-photo"
+                referrerpolicy="no-referrer"
+              />
+              <div class="card-bg-scrim"></div>
+            </div>
+
+            <div class="hero-intro-content">
+              <div class="hero-emblem-wrap hero-stagger" style="--stagger: 0" aria-hidden="true">
+                <svg class="hero-emblem" viewBox="0 0 48 48" fill="none">
+                  <path
+                    d="M24 7C16.2 14.6 14.4 25.8 20.4 35.4C22 37.8 24 40 24 40C24 40 26 37.8 27.6 35.4C33.6 25.8 31.8 14.6 24 7Z"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M24 40V16M24 29.5C18.4 27.6 13.6 23.4 11 17.8C16.4 17.8 20.8 20.4 24 25M24 29.5C29.6 27.6 34.4 23.4 37 17.8C31.6 17.8 27.2 20.4 24 25"
+                    stroke="currentColor"
+                    stroke-width="1.4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <p class="eyebrow-text hero-stagger" style="--stagger: 1">
+                Agricultural Trade &amp; Smart Settlement
+              </p>
+              <h1 class="hero-title hero-stagger" style="--stagger: 2">
+                Bring Clarity &amp; <em>Certainty</em> to Every Harvest
+              </h1>
+              <p class="hero-subtitle hero-stagger" style="--stagger: 3">
+                AgriSettleX unifies crop-to-cash tracking, tamper-evident invoice verification,
+                weather intelligence, and automated payouts for farmers, buyers, transporters, and
+                financiers.
+              </p>
+              <div class="hero-cta-row hero-stagger" style="--stagger: 4">
+                <button
+                  type="button"
+                  class="btn btn-sage btn-shimmer"
+                  data-scroll-target="#stakeholders"
+                >
+                  Explore Platform <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-glass"
+                  data-scroll-target="#how-it-works"
+                >
+                  Discover How It Works
+                </button>
+              </div>
+              <div class="hero-meta-strip hero-stagger" style="--stagger: 5">
+                <span>Crop-to-Cash Visibility</span>
+                <span aria-hidden="true">&middot;</span>
+                <span>Verified Invoices</span>
+                <span aria-hidden="true">&middot;</span>
+                <span>Automated Settlement</span>
+              </div>
+            </div>
+          </div>
+
+          <aside
+            class="glass-panel hero-showcase-card hero-stagger tilt-surface floating-showcase"
+            style="--stagger: 2"
+            data-tilt
+            aria-label="Harvest settlement overview"
+          >
+            <div class="showcase-media-frame">
+              <img
+                src="./src/assets/images/showcase_harvest_botanical_1795777975088.jpg"
+                alt="Fresh green crop stalks and botanical leaves in a matte stoneware vessel"
+                class="showcase-photo"
+                referrerpolicy="no-referrer"
+              />
+              <div class="showcase-photo-scrim" aria-hidden="true"></div>
+              <div class="showcase-photo-caption">
+                <span class="caption-label" id="showcase-cycle-stage">Stage 03 &middot; Invoice Verified</span>
+                <strong class="caption-title">Grade-A Paddy &middot; 42 MT</strong>
+              </div>
+            </div>
+
+            <div class="showcase-body">
+              <div class="showcase-header">
+                <div>
+                  <h2 class="showcase-title">Harvest Settlement Ledger</h2>
+                  <p class="showcase-subtitle" id="showcase-cycle-note">
+                    Verified dispatch &middot; Escrow milestone active
+                  </p>
+                </div>
+                <span class="showcase-rate tabular-nums">T+0 Release</span>
+              </div>
+
+              <div class="cycle-progress-track" aria-hidden="true">
+                <div class="cycle-progress-fill" id="showcase-cycle-fill"></div>
+              </div>
+
+              <div class="ledger-summary-grid">
+                <div class="ledger-cell">
+                  <span class="ledger-label">Crop Origin</span>
+                  <strong class="ledger-value">Karnal Mandi</strong>
+                </div>
+                <div class="ledger-cell">
+                  <span class="ledger-label">Moisture Check</span>
+                  <strong class="ledger-value tabular-nums">12.4% Passed</strong>
+                </div>
+                <div class="ledger-cell">
+                  <span class="ledger-label">Invoice Hash</span>
+                  <strong class="ledger-value tabular-nums">Unique Verified</strong>
+                </div>
+                <div class="ledger-cell">
+                  <span class="ledger-label">Weather Window</span>
+                  <strong class="ledger-value">Clear Transit</strong>
+                </div>
+              </div>
+
+              <div class="showcase-footer">
+                <div class="showcase-amount">
+                  <span class="ledger-label">Settlement Value</span>
+                  <strong class="amount-figure tabular-nums">$28,450.00</strong>
+                </div>
+                <button
+                  type="button"
+                  class="btn btn-sage btn-sm btn-shimmer"
+                  data-scroll-target="#features"
+                >
+                  Inspect Modules <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+                </button>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section class="section" id="about">
+        <div class="container">
+          <div class="about-layout glass-panel reveal-on-scroll">
+            <div class="about-copy">
+              <p class="section-kicker">About AgriSettleX</p>
+              <h2 class="section-title">Restoring speed and trust across agricultural value chains</h2>
+              <p class="section-description">
+                Agricultural trade often stalls between harvest and payment due to fragmented paper
+                receipts, disputed quality grades, duplicate invoice pledges, and unpredictable
+                weather delays.
+              </p>
+              <p class="section-description">
+                AgriSettleX bridges the physical movement of produce with transparent digital
+                verification—allowing every participant to confirm provenance, validate invoices once,
+                and trigger timely settlement without friction.
+              </p>
+              <div class="about-actions">
+                <button
+                  type="button"
+                  class="btn btn-sage btn-shimmer"
+                  data-scroll-target="#stakeholders"
+                >
+                  Get Started <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-glass"
+                  data-scroll-target="#contact"
+                >
+                  Contact Us
+                </button>
+              </div>
+            </div>
+
+            <div class="about-visual-column">
+              <div class="about-editorial-frame">
+                <img
+                  src="./src/assets/images/about_botanical_detail_1795777974778.jpg"
+                  alt="Sunlit green crop foliage against deep forest shadow"
+                  class="about-editorial-photo"
+                  referrerpolicy="no-referrer"
+                />
+                <div class="about-editorial-scrim" aria-hidden="true"></div>
+                <div class="about-editorial-caption">
+                  <span>Farm-Gate Provenance &middot; Climate &amp; Invoice Integrity</span>
+                </div>
+              </div>
+
+              <div class="about-metrics-grid">
+                <article class="glass-subcard tilt-surface reveal-on-scroll" style="--reveal-delay: 60ms" data-tilt>
+                  <span class="metric-value tabular-nums">
+                    <span data-count-to="4" data-count-suffix=" Roles">4 Roles</span>
+                  </span>
+                  <h3 class="metric-title">Unified Participation</h3>
+                  <p class="metric-text">
+                    Dedicated workflows for farmers, buyers, transporters, and financiers.
+                  </p>
+                </article>
+
+                <article class="glass-subcard tilt-surface reveal-on-scroll" style="--reveal-delay: 140ms" data-tilt>
+                  <span class="metric-value tabular-nums">
+                    <span data-count-to="6" data-count-suffix=" Modules">6 Modules</span>
+                  </span>
+                  <h3 class="metric-title">End-to-End Controls</h3>
+                  <p class="metric-text">
+                    Crop-to-cash tracking, weather signals, and duplicate invoice screening.
+                  </p>
+                </article>
+
+                <article class="glass-subcard tilt-surface reveal-on-scroll" style="--reveal-delay: 220ms" data-tilt>
+                  <span class="metric-value tabular-nums">
+                    <span data-count-to="100" data-count-suffix="%">100%</span>
+                  </span>
+                  <h3 class="metric-title">Single-Pledge Verification</h3>
+                  <p class="metric-text">
+                    Unique invoice fingerprinting to prevent double financing across lenders.
+                  </p>
+                </article>
+
+                <article class="glass-subcard tilt-surface reveal-on-scroll" style="--reveal-delay: 300ms" data-tilt>
+                  <span class="metric-value tabular-nums">Milestone</span>
+                  <h3 class="metric-title">Condition-Based Release</h3>
+                  <p class="metric-text">
+                    Settlements release automatically when delivery and quality checks align.
+                  </p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Explore by Stakeholder Section -->
+      <section class="section" id="stakeholders">
+        <div class="container">
+          <div class="section-header reveal-on-scroll">
+            <p class="section-kicker">Explore by Stakeholder</p>
+            <h2 class="section-title">Tailored clarity for every participant in the harvest lifecycle</h2>
+            <p class="section-subtitle">
+              Select a role below to inspect how each participant uses AgriSettleX from farm gate to
+              final settlement.
+            </p>
+          </div>
+
+          <div class="stakeholder-shell glass-panel reveal-on-scroll">
+            <div class="stakeholder-tabs" role="tablist" aria-label="Stakeholder roles">
+              <button
+                type="button"
+                class="stakeholder-tab is-active"
+                role="tab"
+                id="tab-farmer"
+                aria-selected="true"
+                aria-controls="stakeholder-panel"
+                data-stakeholder="farmer"
+              >
+                <span class="tab-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                    <path d="M12 21V9M12 15C8.5 14 6 11 5 7.5C8.5 7.5 11 9.5 12 12.5M12 15C15.5 14 18 11 19 7.5C15.5 7.5 13 9.5 12 12.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </span>
+                <span>Farmer</span>
+              </button>
+
+              <button
+                type="button"
+                class="stakeholder-tab"
+                role="tab"
+                id="tab-buyer"
+                aria-selected="false"
+                aria-controls="stakeholder-panel"
+                data-stakeholder="buyer"
+              >
+                <span class="tab-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                    <path d="M5 8h14l-1.2 11H6.2L5 8Z" stroke-linejoin="round" />
+                    <path d="M9 8V6a3 3 0 0 1 6 0v2" stroke-linecap="round" />
+                  </svg>
+                </span>
+                <span>Buyer</span>
+              </button>
+
+              <button
+                type="button"
+                class="stakeholder-tab"
+                role="tab"
+                id="tab-transporter"
+                aria-selected="false"
+                aria-controls="stakeholder-panel"
+                data-stakeholder="transporter"
+              >
+                <span class="tab-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                    <path d="M3 7h11v9H3V7Zm11 3h4l3 3v3h-7v-6Z" stroke-linejoin="round" />
+                    <circle cx="7.5" cy="17.5" r="1.8" />
+                    <circle cx="17.5" cy="17.5" r="1.8" />
+                  </svg>
+                </span>
+                <span>Transporter</span>
+              </button>
+
+              <button
+                type="button"
+                class="stakeholder-tab"
+                role="tab"
+                id="tab-financier"
+                aria-selected="false"
+                aria-controls="stakeholder-panel"
+                data-stakeholder="financier"
+              >
+                <span class="tab-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                    <path d="M4 10h16M6 10v8m4-8v8m4-8v8m4-8v8M3 19h18M12 4l9 4H3l9-4Z" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </span>
+                <span>Financier</span>
+              </button>
+            </div>
+
+            <div
+              class="stakeholder-detail-card"
+              id="stakeholder-panel"
+              role="tabpanel"
+              aria-labelledby="tab-farmer"
+              aria-live="polite"
+            >
+              <!-- Populated and updated by src/app.js -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section class="section" id="features">
+        <div class="container">
+          <div class="section-header reveal-on-scroll">
+            <p class="section-kicker">Core Platform Capabilities</p>
+            <h2 class="section-title">Six precision modules engineered for agricultural trust</h2>
+            <p class="section-subtitle">
+              Every module works together to verify harvests, protect invoice integrity, and
+              accelerate settlement across the supply chain.
+            </p>
+          </div>
+
+          <div class="features-grid">
+            <article
+              class="glass-card feature-card tilt-surface reveal-on-scroll"
+              style="--reveal-delay: 0ms"
+              data-feature="crop-to-cash"
+              data-tilt
+            >
+              <div class="feature-card-top">
+                <div class="feature-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <path d="M4 17l5-5 4 3 7-8" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M16 7h4v4" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <span class="feature-index tabular-nums">01</span>
+              </div>
+              <h3 class="feature-title">Crop-to-Cash Tracking</h3>
+              <p class="feature-summary">
+                Follow every harvest batch from field weighing and transit milestones through final
+                payout settlement in one clear timeline.
+              </p>
+              <button type="button" class="btn-learn-more" data-feature-btn="crop-to-cash">
+                Learn More <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+              </button>
+            </article>
+
+            <article
+              class="glass-card feature-card tilt-surface reveal-on-scroll"
+              style="--reveal-delay: 80ms"
+              data-feature="invoice-verification"
+              data-tilt
+            >
+              <div class="feature-card-top">
+                <div class="feature-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <path d="M7 4h8l4 4v12H7V4Z" stroke-linejoin="round" />
+                    <path d="M10 13l2 2 4-4" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <span class="feature-index tabular-nums">02</span>
+              </div>
+              <h3 class="feature-title">Invoice Verification</h3>
+              <p class="feature-summary">
+                Cross-check weighbridge slips, lot grades, and buyer purchase orders before any
+                invoice is approved for settlement or financing.
+              </p>
+              <button type="button" class="btn-learn-more" data-feature-btn="invoice-verification">
+                Learn More <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+              </button>
+            </article>
+
+            <article
+              class="glass-card feature-card tilt-surface reveal-on-scroll"
+              style="--reveal-delay: 160ms"
+              data-feature="smart-settlement"
+              data-tilt
+            >
+              <div class="feature-card-top">
+                <div class="feature-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <rect x="4" y="6" width="16" height="12" rx="3" />
+                    <path d="M4 10h16M8 14h4" stroke-linecap="round" />
+                  </svg>
+                </div>
+                <span class="feature-index tabular-nums">03</span>
+              </div>
+              <h3 class="feature-title">Smart Settlement</h3>
+              <p class="feature-summary">
+                Automate split disbursements to farmers, transporters, and lenders the moment agreed
+                delivery and quality milestones clear.
+              </p>
+              <button type="button" class="btn-learn-more" data-feature-btn="smart-settlement">
+                Learn More <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+              </button>
+            </article>
+
+            <article
+              class="glass-card feature-card tilt-surface reveal-on-scroll"
+              style="--reveal-delay: 240ms"
+              data-feature="weather-intelligence"
+              data-tilt
+            >
+              <div class="feature-card-top">
+                <div class="feature-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <path d="M7 16a4 4 0 0 1 .4-8 5 5 0 0 1 9.6 1.5A3.5 3.5 0 0 1 17.5 16H7Z" stroke-linejoin="round" />
+                    <path d="M9 19l-1 2m4-2l-1 2m4-2l-1 2" stroke-linecap="round" />
+                  </svg>
+                </div>
+                <span class="feature-index tabular-nums">04</span>
+              </div>
+              <h3 class="feature-title">Weather Intelligence</h3>
+              <p class="feature-summary">
+                Factor real-time rainfall, humidity, and transit route forecasts into harvest grading,
+                storage windows, and delivery risk alerts.
+              </p>
+              <button type="button" class="btn-learn-more" data-feature-btn="weather-intelligence">
+                Learn More <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+              </button>
+            </article>
+
+            <article
+              class="glass-card feature-card tilt-surface reveal-on-scroll"
+              style="--reveal-delay: 320ms"
+              data-feature="farmer-passport"
+              data-tilt
+            >
+              <div class="feature-card-top">
+                <div class="feature-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <rect x="5" y="4" width="14" height="16" rx="2.5" />
+                    <circle cx="12" cy="10" r="2.2" />
+                    <path d="M8.5 16.5c.8-1.6 2-2.3 3.5-2.3s2.7.7 3.5 2.3" stroke-linecap="round" />
+                  </svg>
+                </div>
+                <span class="feature-index tabular-nums">05</span>
+              </div>
+              <h3 class="feature-title">Farmer Financial Passport</h3>
+              <p class="feature-summary">
+                Build a portable record of verified harvests, fulfillment consistency, and settled
+                trades to unlock fairer seasonal credit terms.
+              </p>
+              <button type="button" class="btn-learn-more" data-feature-btn="farmer-passport">
+                Learn More <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+              </button>
+            </article>
+
+            <article
+              class="glass-card feature-card tilt-surface reveal-on-scroll"
+              style="--reveal-delay: 400ms"
+              data-feature="duplicate-detection"
+              data-tilt
+            >
+              <div class="feature-card-top">
+                <div class="feature-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <path d="M12 3l7 3v5c0 4.8-3 8.6-7 10-4-1.4-7-5.2-7-10V6l7-3Z" stroke-linejoin="round" />
+                    <path d="M9.5 12l1.8 1.8 3.7-3.8" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <span class="feature-index tabular-nums">06</span>
+              </div>
+              <h3 class="feature-title">Duplicate Invoice Detection</h3>
+              <p class="feature-summary">
+                Flag repeated invoice numbers, overlapping lot weights, and double-pledged receipts
+                across participating financiers instantly.
+              </p>
+              <button type="button" class="btn-learn-more" data-feature-btn="duplicate-detection">
+                Learn More <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+              </button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- How It Works Section -->
+      <section class="section" id="how-it-works">
+        <div class="container">
+          <div class="section-header reveal-on-scroll">
+            <p class="section-kicker">How It Works</p>
+            <h2 class="section-title">Four transparent steps from farm gate to final payout</h2>
+            <p class="section-subtitle">
+              A clear, auditable workflow ensures every stakeholder verifies their milestone without
+              manual paperwork bottlenecks.
+            </p>
+          </div>
+
+          <div class="workflow-stage">
+            <div class="workflow-flow-line" aria-hidden="true"></div>
+            <div class="workflow-grid">
+              <article class="glass-card workflow-step tilt-surface reveal-on-scroll" style="--reveal-delay: 0ms" data-tilt>
+                <span class="step-number tabular-nums">01</span>
+                <h3 class="step-title">Harvest Lot Registration</h3>
+                <p class="step-text">
+                  The farmer records crop variety, weight, and origin moisture readings, anchoring the
+                  lot with a verified trade record.
+                </p>
+              </article>
+
+              <article class="glass-card workflow-step tilt-surface reveal-on-scroll" style="--reveal-delay: 110ms" data-tilt>
+                <span class="step-number tabular-nums">02</span>
+                <h3 class="step-title">Dispatch &amp; Weather Check</h3>
+                <p class="step-text">
+                  Transporters confirm pickup and route handoffs while weather intelligence monitors
+                  moisture and transit conditions.
+                </p>
+              </article>
+
+              <article class="glass-card workflow-step tilt-surface reveal-on-scroll" style="--reveal-delay: 220ms" data-tilt>
+                <span class="step-number tabular-nums">03</span>
+                <h3 class="step-title">Invoice &amp; Quality Audit</h3>
+                <p class="step-text">
+                  The buyer validates delivered grade and weight while AgriSettleX checks for duplicate
+                  or conflicting invoice claims.
+                </p>
+              </article>
+
+              <article class="glass-card workflow-step tilt-surface reveal-on-scroll" style="--reveal-delay: 330ms" data-tilt>
+                <span class="step-number tabular-nums">04</span>
+                <h3 class="step-title">Automated Smart Settlement</h3>
+                <p class="step-text">
+                  Once verified, funds settle cleanly across farmer, transporter, and financier
+                  accounts and update the Farmer Financial Passport.
+                </p>
+              </article>
+            </div>
+          </div>
+
+          <div class="workflow-cta-bar glass-panel reveal-on-scroll">
+            <div>
+              <h3 class="workflow-cta-title">Ready to explore your role on AgriSettleX?</h3>
+              <p class="workflow-cta-subtitle">
+                Switch between Farmer, Buyer, Transporter, and Financier views or reach out to our
+                team.
+              </p>
+            </div>
+            <div class="workflow-cta-buttons">
+              <button
+                type="button"
+                class="btn btn-sage btn-shimmer"
+                data-scroll-target="#stakeholders"
+              >
+                Get Started <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+              </button>
+              <button
+                type="button"
+                class="btn btn-glass"
+                data-scroll-target="#contact"
+              >
+                Contact Us
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section class="section" id="contact">
+        <div class="container">
+          <div class="contact-layout glass-panel reveal-on-scroll">
+            <div class="contact-info">
+              <p class="section-kicker">Contact Us</p>
+              <h2 class="section-title">Start a conversation with AgriSettleX</h2>
+              <p class="section-description">
+                Questions about onboarding a cooperative, integrating buyer procurement, or
+                verifying agricultural invoices? Send us a message and our team will respond.
+              </p>
+
+              <div class="contact-highlights">
+                <div class="contact-highlight-item">
+                  <span class="contact-label">Platform Focus</span>
+                  <strong class="contact-value">Agricultural Trade &amp; Settlement</strong>
+                </div>
+                <div class="contact-highlight-item">
+                  <span class="contact-label">Stakeholder Support</span>
+                  <strong class="contact-value">Farmers &middot; Buyers &middot; Transporters &middot; Financiers</strong>
+                </div>
+                <div class="contact-highlight-item">
+                  <span class="contact-label">General Inquiries</span>
+                  <strong class="contact-value">hello@agrisettlex.example</strong>
+                </div>
+              </div>
+            </div>
+
+            <form class="contact-form" id="contact-form" novalidate>
+              <div class="form-field">
+                <label for="contact-name" class="form-label">Name</label>
+                <input
+                  type="text"
+                  id="contact-name"
+                  name="name"
+                  class="form-input"
+                  placeholder="Enter your full name"
+                  autocomplete="name"
+                  required
+                />
+                <p class="field-error" id="error-name" role="alert" hidden></p>
+              </div>
+
+              <div class="form-field">
+                <label for="contact-email" class="form-label">Email</label>
+                <input
+                  type="email"
+                  id="contact-email"
+                  name="email"
+                  class="form-input"
+                  placeholder="you@organization.com"
+                  autocomplete="email"
+                  required
+                />
+                <p class="field-error" id="error-email" role="alert" hidden></p>
+              </div>
+
+              <div class="form-field">
+                <label for="contact-message" class="form-label">Message</label>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  rows="4"
+                  class="form-input form-textarea"
+                  placeholder="Tell us about your crop trade, logistics, or settlement needs..."
+                  required
+                ></textarea>
+                <p class="field-error" id="error-message" role="alert" hidden></p>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-sage btn-full btn-shimmer">
+                  Send Message <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+                </button>
+              </div>
+
+              <div class="form-feedback" id="contact-success" role="status" aria-live="polite" hidden>
+                <span class="feedback-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </span>
+                <div>
+                  <strong>Message sent</strong>
+                  <p id="contact-success-text">
+                    Thank you for reaching out. Your inquiry has been recorded for this demo preview.
+                  </p>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Quiet Footer -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <a href="#home" class="brand-link">
+            <svg class="brand-emblem" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+              <path
+                d="M18 5C12.2 10.8 10.8 19.2 15.2 26.8C16.4 28.8 18 30.4 18 30.4C18 30.4 19.6 28.8 20.8 26.8C25.2 19.2 23.8 10.8 18 5Z"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M18 30.4V11.5M18 22C13.8 20.6 10 17.4 8.2 13.2C12.2 13.2 15.6 15.1 18 18.6M18 22C22.2 20.6 26 17.4 27.8 13.2C23.8 13.2 20.4 15.1 18 18.6"
+                stroke="currentColor"
+                stroke-width="1.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <span class="brand-name">AgriSettleX</span>
+          </a>
+          <p class="footer-note">
+            Botanical clarity for agricultural trade verification and smart settlement.
+          </p>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#features">Features</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <p class="footer-copyright">&copy; <span id="footer-year">2026</span> AgriSettleX. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button
+      type="button"
+      class="back-to-top"
+      id="back-to-top"
+      aria-label="Back to top"
+      hidden
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M12 19V5M6 11l6-6 6 6" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
+
+    <!-- Feature Detail Modal -->
+    <div class="modal-backdrop" id="feature-modal" role="dialog" aria-modal="true" aria-labelledby="feature-modal-title" hidden>
+      <div class="glass-modal modal-card">
+        <div class="modal-header">
+          <div>
+            <p class="modal-kicker" id="feature-modal-kicker">Platform Capability</p>
+            <h2 class="modal-title" id="feature-modal-title">Feature Details</h2>
+          </div>
+          <button type="button" class="modal-close" data-close-modal="feature-modal" aria-label="Close feature modal">
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <p class="modal-description" id="feature-modal-description"></p>
+          <div class="modal-highlights">
+            <h3 class="modal-subheading">Key Capabilities</h3>
+            <ul class="modal-list" id="feature-modal-points"></ul>
+          </div>
+          <div class="modal-meta-row">
+            <span class="ledger-label">Primary Beneficiaries</span>
+            <strong id="feature-modal-roles"></strong>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-glass" data-close-modal="feature-modal">Close</button>
+          <button
+            type="button"
+            class="btn btn-sage btn-shimmer"
+            id="feature-modal-cta"
+          >
+            Explore Stakeholders <span aria-hidden="true">&rarr;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Placeholder Login Modal -->
+    <div class="modal-backdrop" id="login-modal" role="dialog" aria-modal="true" aria-labelledby="login-modal-title" hidden>
+      <div class="glass-modal modal-card modal-card--compact">
+        <div class="modal-header">
+          <div>
+            <p class="modal-kicker">Portal Access</p>
+            <h2 class="modal-title" id="login-modal-title">AgriSettleX Workspace Login</h2>
+          </div>
+          <button type="button" class="modal-close" data-close-modal="login-modal" aria-label="Close login modal">
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <p class="modal-description">
+            Authentication is intentionally disabled in this frontend preview. Select your role in
+            the <strong>Explore by Stakeholder</strong> section to inspect platform activities for
+            Farmers, Buyers, Transporters, and Financiers.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-glass" data-close-modal="login-modal">Close</button>
+          <button type="button" class="btn btn-sage btn-shimmer" id="login-modal-explore">
+            Explore Roles <span aria-hidden="true">&rarr;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script defer src="./src/app.js"></script>
+  </body>
+</html>
